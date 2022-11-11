@@ -1,38 +1,46 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar-blue">
-  <a class="navbar-brand logo-white" href="/">
-    <div class="d-flex">
-      <i class="fas fa-film"></i>
-      <h3 class="ml-2">Movie Lists</h3>
-    </div>
-</a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watchlist</title>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://thumbs.dreamstime.com/b/movie-film-company-logo-design-vector-template-movie-film-company-logo-design-inspiration-vector-template-167661473.jpg" %>
+    <% end %>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="#">My lists <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/">All lists</a>
-        </li>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "MyList", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Bookmarks", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://this-person-does-not-exist.com/img/avatar-47fa0c9e088c47342cb4c079704e8da5.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Sign in", "#", class: "dropdown-item" %>
+              <%= link_to "Sign out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
       </ul>
-  </div>
-</nav>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://st3.depositphotos.com/1064045/15061/i/600/depositphotos_150614902-stock-photo-unusual-cinema-concept-3d-illustration.jpg);">
-
-    <p>Find the perfect movie that suits your mood.</p>
-    <a class="btn btn-flat" href="#">Watch now</a>
-    <div class="container">
-    <div class="cards">
-  <% @lists.each do |list| %>
-      <div class="card"
-  <p>
-    <%= list.name  %>
-    </div>
-</p>   <% end %>
-
-    </div>
     </div>
   </div>
 </div>
+</head>
+<body>
+
+</body>
+</html>
