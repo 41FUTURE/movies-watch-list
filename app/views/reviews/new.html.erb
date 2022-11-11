@@ -1,4 +1,4 @@
-   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="https://thumbs.dreamstime.com/b/movie-film-company-logo-design-vector-template-movie-film-company-logo-design-inspiration-vector-template-167661473.jpg" />
@@ -13,10 +13,8 @@
             <a class="nav-link" href="http://localhost:3000/lists/">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
             </div>
           </li>
@@ -26,22 +24,9 @@
     </div>
   </div>
 </div>
-   <div class="container">
-    <div class="row">
-        <hr>
-        <div class="form">
-         <h3><%= @list.name %> </h3>
-          <% @list.bookmarks.each do |bookmark| %>
-          <h3><%= bookmark.movie.title %> </h3>
-         <% end %>
-         <% @list.reviews.each do |review| %>
-          <h3><%=  "⭐️"* review.rating  %> </h3>
-         <% end %>
-         <%= link_to "Add a bookmark", new_list_bookmark_path(@list), class:"btn btn-primary " %>.
-         <%= link_to "Add a Review", new_list_review_path(@list), class:"btn btn-primary " %>
-        </div>
-    </div>
-   </div>
 
-  </div>
-</div>
+<h3>  <strong>Reviews</strong> </h3>
+<%= simple_form_for [@list,@review]  do |f| %>
+  <%= f.input :rating %>
+  <%= f.button :submit  %>
+<% end %>

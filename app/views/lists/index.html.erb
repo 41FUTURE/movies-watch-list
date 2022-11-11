@@ -3,6 +3,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <title>Watchlist</title>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
@@ -21,7 +24,7 @@
             <%= link_to "MyList", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Bookmarks", "http://localhost:3000/lists/3/bookmarks/new", class: "nav-link" %>
+            <%= link_to "Create list", "http://localhost:3000/lists/new", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -39,8 +42,12 @@
     </div>
   </div>
 </div>
+
 </head>
 <body>
+<div class="typing">
+    <div class="typing-effect">Find the perfect movie🎬️..</div>
+</div>
 <div class="cards">
 <% @lists.each do |list| %>
  <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
@@ -48,5 +55,14 @@
 </div>
 <% end %>
 </div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Copyright ©  Ltd 2022<i class="fa-regular fa-copyright"></i>
+  </div>
+</div>
+
 </body>
 </html>
