@@ -24,7 +24,7 @@
             <%= link_to "Bookmarks", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://this-person-does-not-exist.com/img/avatar-47fa0c9e088c47342cb4c079704e8da5.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Sign in", "#", class: "dropdown-item" %>
               <%= link_to "Sign out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
@@ -41,6 +41,12 @@
 </div>
 </head>
 <body>
-
+<div class="cards">
+<% @lists.each do |list| %>
+ <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
+<%= link_to list.name, list_path(list) %>
+</div>
+<% end %>
+</div>
 </body>
 </html>
